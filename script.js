@@ -32,3 +32,14 @@ sensors.forEach(s => {
     }).addTo(map)
       .bindPopup(`${s.name}<br>PM2.5: ${s.pm25}`);
 });
+//Hiển thị lời khuyên
+L.circle([s.lat, s.lon], {
+    color: getColor(s.pm25),
+    radius: 20
+})
+.addTo(map)
+.bindPopup(`
+    <b>${s.name}</b><br>
+    PM2.5: ${s.pm25}<br>
+    <span style="color:blue;">${aiAdvice(s.pm25)}</span>
+`);
