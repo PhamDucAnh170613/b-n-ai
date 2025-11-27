@@ -1,14 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Bản đồ ô nhiễm không khí AI</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-</head>
-<body>
-<h2>Bản đồ PM2.5 – Trường học</h2>
-<div id="map" style="height: 500px;"></div>
+    <meta charset="UTF-8">
+    <title>Bản đồ không khí AI</title>
 
-<script src="script.js"></script>
+    <!-- CSS cho bản đồ -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        /* Reset margin/padding */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container tổng */
+        .container {
+            width: 100%;
+            max-width: 1200px;   /* Không quá to */
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        /* Tiêu đề */
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Bản đồ */
+        #map {
+            width: 100%;         /* luôn vừa với màn hình */
+            height: 60vh;        /* 60% chiều cao màn hình */
+            max-height: 600px;   /* thêm giới hạn đẹp */
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 600px) {
+            #map {
+                height: 50vh;   /* nhỏ hơn 1 chút trên mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bản đồ chất lượng không khí AI</h1>
+        <div id="map"></div>
+    </div>
+
+    <!-- Script Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Main JS (bạn thêm code AI, cảm biến, marker vào đây) -->
+    <script src="main.js"></script>
+
 </body>
 </html>
