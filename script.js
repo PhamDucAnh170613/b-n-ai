@@ -1,5 +1,5 @@
 // Tọa độ trường học (bạn có thể đổi)
-let school = [21.0394672, 105.8043239]; // Hà Nội
+let school = [21.0285, 105.8542]; // Hà Nội
 
 // Dữ liệu đo PM2.5 (giả lập)
 let sensors = [
@@ -32,7 +32,25 @@ sensors.forEach(s => {
     }).addTo(map)
       .bindPopup(`${s.name}<br>PM2.5: ${s.pm25}`);
 });
-//Hiển thị lời khuyên
+//Gợi ý của AI
+function aiAdvice(pm) {
+    if (pm <= 30) return "Không khí sạch – có thể ra chơi bình thường 🌿";
+    if (pm <= 60) return "Hơi ô nhiễm – hạn chế chạy mạnh 🏃";
+    if (pm <= 100) return "Ô nhiễm cao – học sinh nên ở trong lớp 🚪";
+    return "Rất nguy hiểm – tuyệt đối không ra chơi, đóng cửa lớp ❌";
+}
+
+sensors.forEach(s => {
+    console.log(s.name + ": " + aiAdvice(s.pm25));
+});
+//Bản đồ real-time
+setInterval(() => {
+    sensors.forEach(s => {
+        s.pm25 = Math.floor(Math.random() * 120); // dữ liệu thay đổi
+    });
+    location.reload();
+}, 5000);
+//Hiển thị gợi ý
 L.circle([s.lat, s.lon], {
     color: getColor(s.pm25),
     radius: 20
@@ -43,4 +61,3 @@ L.circle([s.lat, s.lon], {
     PM2.5: ${s.pm25}<br>
     <span style="color:blue;">${aiAdvice(s.pm25)}</span>
 `);
-
