@@ -4,64 +4,50 @@
     <meta charset="UTF-8">
     <title>Bản đồ không khí AI</title>
 
-    <!-- CSS cho bản đồ -->
+    <!-- CSS của Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <style>
-        /* Reset margin/padding */
+        /* Reset toàn trang */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
         }
 
-        /* Container tổng */
-        .container {
-            width: 100%;
-            max-width: 1200px;   /* Không quá to */
-            margin: 20px auto;
-            padding: 10px;
+        /* Container bao toàn bộ màn hình */
+        .page {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Tiêu đề */
         h1 {
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 20px;
+            margin: 10px 0;
+            font-size: 26px;
         }
 
-        /* Bản đồ */
+        /* Bản đồ FULL chiều cao còn lại */
         #map {
-            width: 100%;         /* luôn vừa với màn hình */
-            height: 100vh;        /* 60% chiều cao màn hình */
-            /*max-height: 600px;*/   /* thêm giới hạn đẹp */
-            border-radius: 10px;
-            margin: auto;
-        }
-
-        /* Responsive cho điện thoại */
-        @media (max-width: 600px) {
-            #map {
-                height: 50vh;   /* nhỏ hơn 1 chút trên mobile */
-            }
+            flex: 1;              /* Chiếm toàn bộ không gian còn lại */
+            width: 100%;
+            border-radius: 0;     /* Không bo góc nếu muốn full */
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="page">
         <h1>Bản đồ chất lượng không khí AI</h1>
         <div id="map"></div>
     </div>
 
-    <!-- Script Leaflet -->
+    <!-- Leaflet Script -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- Main JS (bạn thêm code AI, cảm biến, marker vào đây) -->
+    <!-- File JS của bạn -->
     <script src="main.js"></script>
-
 </body>
 </html>
-
-
