@@ -1,5 +1,5 @@
 // Tọa độ trường học (bạn có thể đổi)
-let school = [21.0285, 105.8542]; // Hà Nội
+let school = [21.0394672, 105.8043239]; // Hà Nội
 
 // Dữ liệu đo PM2.5 (giả lập)
 let sensors = [
@@ -43,3 +43,4 @@ L.circle([s.lat, s.lon], {
     PM2.5: ${s.pm25}<br>
     <span style="color:blue;">${aiAdvice(s.pm25)}</span>
 `);
+
